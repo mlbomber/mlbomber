@@ -14,5 +14,5 @@ OPT=--parser js-like
 
 CONF=conf.conf
 
-calc.exe: $(SRC) $(CONF)
+mlbomber.exe: $(SRC) $(CONF)
 	opa $(SRC) $(CONF) $(OPT) $(OPT2)
