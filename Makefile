@@ -1,5 +1,5 @@
 SRC=display/bomb/bomb.opa\
-	display/commom/common.opa\
+	display/common/common.opa\
 	display/map/map.opa\
 	display/player/player.opa\
 	game/generator/map-generator.opa\
