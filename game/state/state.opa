@@ -48,7 +48,7 @@ GameState = AtomicMutable(initial_state)
 server function game_state do_action(game_state state, action action){
 	match(action){
 		// Mise à jour des tick des bombes
-		case({bombtick}): {state with players = bombtickPlayers(state.players)}
+		case({bombtick}): {state with players : bombtickPlayers(state.players)}
 		// Prise en compte des action des joueurs
 		case({player_action p_action, string id}): {
 			// Récupération de la liste des playeris modifiée
@@ -56,16 +56,17 @@ server function game_state do_action(game_state state, action action){
 				// Si le joueur accomplit l'action et n'est pas mort, on le modifie
 				if(player.id==id && player.dead == false){
 					// Exécution de l'action
-					player = match(p_action){
+					match(p_action){
 						// Largage de bombe
 						case {drop}: drop_bomb(player)
 						// Déplacement
-                                                case _: 
+                                                case _: move_player(p_action, player, state) 
 					}
 				}
 				// Sinon on le renvoie
 				else player
 			})
+			players
 		}
 	}
 }
@@ -75,7 +76,7 @@ function game_player drop_bomb(game_player player){
 	// Si le joueur a une bombe
 	if(player.bomb==none){
 		// Génération d'une bombe sur le plateau aux coordonnées du joueur
-		player with bomb = some({ row:player.row, col:player.col, range:3, timelaps:5 })
+		player with bomb : some({ row:player.row, col:player.col, range:3, timelaps:5 })
 	}
 	
 }
@@ -92,7 +93,7 @@ function game_player move_player(player_action action, game_player player, game_
 }
 
 // Définition d'un raccourci pour récupérer le i-eme élément d'un tableau
-`@`(t,i){LowLevelArray.get(t,i)}
+`@`=LowLevelArray.get
 
 // Déplace le joueur en gérant les collisions
 function game_player move(int d_row, int d_col, game_player player, game_state state)
@@ -109,7 +110,7 @@ function game_player move(int d_row, int d_col, game_player player, game_state s
 		// renvoyer le joueur non modifié
 		player 
 	// sinon, déplacer le joueur
-	else {player with row = p_row+d_row, col = p_col+d_col }
+	else {player with row : p_row+d_row, col : p_col+d_col }
 }
 
 function bool check_non_passable(int row, int col, game_state state)

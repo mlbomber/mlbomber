@@ -1,6 +1,6 @@
 
 
-function bombtickPlayers(list(game_player) players){
+function list(game_player) bombtickPlayers(list(game_player) players){
          List.map(bombtickPlayer,players)
          List.map(killplayer(_,players),players)
       
