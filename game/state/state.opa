@@ -46,13 +46,14 @@ GameState = AtomicMutable(initial_state)
 
 // Calcule un nouvel état du jeu
 server function game_state do_action(game_state state, action action){
-	match(action){
+	players = match(action){
 		// Mise à jour des tick des bombes
-		case({bombtick}): {state with players : bombtickPlayers(state.players)}
+		case({bombtick}): bombtickPlayers(state.players)
 		// Prise en compte des action des joueurs
-		case({player_action p_action, string id}): {
+		case({action:p_action, ~id}): {
 			// Récupération de la liste des playeris modifiée
-			players = List.map(_,state.players)(function(player){
+			List.map(_,state.players){
+				function(game_player player)
 				// Si le joueur accomplit l'action et n'est pas mort, on le modifie
 				if(player.id==id && player.dead == false){
 					// Exécution de l'action
@@ -65,10 +66,10 @@ server function game_state do_action(game_state state, action action){
 				}
 				// Sinon on le renvoie
 				else player
-			})
-			players
+			}
 		}
 	}
+	{state with ~players}
 }
 
 // Largue une bombe à l'emplacement du joueur
@@ -78,7 +79,7 @@ function game_player drop_bomb(game_player player){
 		// Génération d'une bombe sur le plateau aux coordonnées du joueur
 		player with bomb : some({ row:player.row, col:player.col, range:3, timelaps:5 })
 	}
-	
+	else player
 }
 
 // Gère le déplacement du joueur en fonction de la irection choisie
@@ -102,7 +103,7 @@ function game_player move(int d_row, int d_col, game_player player, game_state s
 	p_col = player.col
 	// Si le joueur est sur un bord de la map et ne peut pas se déplacer
 	if( (p_row+d_row < 0 || p_row+d_row > LowLevelArray.length(state.map)-1 
-		|| p_col+d_col < 0 || p_col+d_col > LowLevelArray.length(map@0)-1)
+		|| p_col+d_col < 0 || p_col+d_col > LowLevelArray.length(state.map@0)-1)
 	// ou si la case est occupée par un bloc infranchissable
 	|| check_non_passable(p_row+d_row, p_col+d_col, state) 
 	// ou si la case est occupée par un bloc destructible non-detruit
@@ -123,7 +124,7 @@ function bool check_non_passable(int row, int col, game_state state)
 
 function bool check_non_destructed(int row, int col, game_state state)
 {
-	List.exist( function(elmt){ (elmt.row == row && elmt.col==col && elmt.destructed==false ) }, state.destructibles )
+	List.exists( function(elmt){ (elmt.row == row && elmt.col==col && elmt.destructed==false ) }, state.destructibles )
 }
 
 // Met à jour l'état du jeu mutable
