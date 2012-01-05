@@ -1,8 +1,7 @@
-type profilePlayer = string
 
 /** Declaration UserContext **/
-players_UserContext = UserContext.make(option(profilePlayer) none)
-
+players_UserContext = UserContext.make(option(profile_Player) none)
+image = [1,2,3]
 
 function init_pseudo(){
     //Resource.html("Change Pseudo",
@@ -14,10 +13,16 @@ function init_pseudo(){
     </fieldset>
     }
 
+function get_image()
+{
+    2
+}
+
 function change_name(){
-    text = Dom.get_value(#change_pseudo)
-    #{"test"}=text
-    UserContext.change(function (st){some(text)},players_UserContext)
+    name = Dom.get_value(#change_pseudo)
+    //#{"test"}=text
+    image = get_image()
+    UserContext.change(function (st){some(name)},players_UserContext)
     /* redirection a mettre plus tard
     Client.goto("bomberman") 
     */
