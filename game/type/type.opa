@@ -1,5 +1,17 @@
 /* Types de jeu du bomberman */
 
+// Etat du jeu
+type game_state = {
+	// Liste des cases destructibles
+	list({int row, int col, bool destructed}) destructibles,
+	// Liste des cases (vides ou non)
+	array(array(tile)) map,
+	// Liste des joueurs
+	list (game_player) players,
+	// Fin du jeu
+	bool end_game
+}
+
 // Joueur ingame
 type game_player = {
 	// id du joueur
