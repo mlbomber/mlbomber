@@ -42,7 +42,7 @@ initial_state = 0 // dummy def
 GameState = AtomicMutable(initial_state) 
 
 
-
+function list_map(cont)(f){List.map(f,cont)}
 
 // Calcule un nouvel état du jeu
 server function game_state do_action(game_state state, action action){
@@ -52,8 +52,8 @@ server function game_state do_action(game_state state, action action){
 		// Prise en compte des action des joueurs
 		case({action:p_action, ~id}): {
 			// Récupération de la liste des playeris modifiée
-			List.map(_,state.players){
-				function(game_player player)
+			list_map(state.players){
+			        function (game_player player)
 				// Si le joueur accomplit l'action et n'est pas mort, on le modifie
 				if(player.id==id && player.dead == false){
 					// Exécution de l'action

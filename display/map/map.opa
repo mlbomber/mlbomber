@@ -2,10 +2,17 @@
 class_full = "full"
 class_empty = "empty"
 /*TOP-LEVEL*/
+function array_foldi(cont,acc)(f){
+   LowLevelArray.foldi(f,cont,acc)
+}
+function list_fold(cont,acc)(f){
+   List.fold(f,cont,acc)
+}
+
 function load_map(game_state game_state)
 {
-        x = LowLevelArray.foldi(_,game_state.map,<></>){function (row,col_array,acc)
-            LowLevelArray.foldi(_,col_array,acc){function (col,tile,acc)
+        x = array_foldi(game_state.map,<></>){function (row,row_array,acc)
+              array_foldi(row_array,acc){function (col,tile,acc)
                class = match(tile)
                        {
                        case {full}: class_full
@@ -16,7 +23,7 @@ function load_map(game_state game_state)
             }
         }
 
-        x = List.fold(_,game_state.destructibles, x){function (d, acc)
+        x = list_fold(game_state.destructibles, x){function (d, acc)
             if(d.destructed)
             {
                 (row, col) = generate_pixel_pos(d.row, d.col)
