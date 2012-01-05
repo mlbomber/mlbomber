@@ -19,7 +19,7 @@ function load_map(game_state game_state)
                        case {empty}: class_empty
                        }
                (row, col) = generate_pixel_pos(row, col)
-               acc <+> <div class={class} style="top:{col};left:{row}"></div>
+               acc <+> <div class="{class}" style="top:{col}px;left:{row}px"></div>
             }
         }
 
@@ -27,8 +27,8 @@ function load_map(game_state game_state)
             if(d.destructed)
             {
                 (row, col) = generate_pixel_pos(d.row, d.col)
-                acc <+>  <div class="destructible" style="top:{col};left:{row}"></div>
-            }
+                acc <+>  <div class="destructible" style="top:{col}px;left:{row}px"></div>
+            } else acc
         }
         x
 }
