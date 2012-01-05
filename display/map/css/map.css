@@ -1,0 +1,21 @@
+/***MAP***/
+.empty {
+    background: url("/css/resources/map_empty.png");
+    background-repeat: repeat;
+    height: 45px;
+    width: 40px;
+}
+
+.full {
+    background: url("/css/resources/map_full.png");
+    background-repeat: no-repeat;
+    height: 45px;
+    width: 40px;
+}
+
+.destructible {
+    background: url("/css/resources/map_destructible.png");
+    background-repeat: no-repeat;
+    height: 45px;
+    width: 40px;
+}
