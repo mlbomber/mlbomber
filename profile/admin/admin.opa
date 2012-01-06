@@ -24,6 +24,7 @@ function change_name(){
 
     UserContext.change(change_name, players_UserContext)
     #{IdChangePseudo.test}="New Pseudo : {name}"
+    Client.go_to("/game")
 }
 
 
