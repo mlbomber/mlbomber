@@ -1,5 +1,5 @@
 /* Jeu */
-functionn show_game(){
+function show_game(){
 	Ressource.html("BOMBER",
 		<div>carte</div>
 	)
