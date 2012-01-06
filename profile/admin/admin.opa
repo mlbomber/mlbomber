@@ -1,6 +1,6 @@
 
 
-function init_pseudo(){
+function profile(){
     //Resource.html("Change Pseudo",
     <fieldset>
         <legend>config player</legend>

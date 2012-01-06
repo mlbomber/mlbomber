@@ -34,9 +34,57 @@ function create_img_box(image,xhtml){
     xhtml <+> <div onclick={onclick}><img src="/{image}" />{image}</div>
 }
 
+
 function get_image_random()
 {
     length_image_list = List.length(image_list)
     index_img = Random.int(length_image_list)
     List.nth(index_img, image_list)?error("get_image") 
 }
+/*pour recuperer la valeur d'un usercontext
+_."nomchanp" cree une fonction pour recup la valeur
+de "nomchamp"*/
+function unsafe_execute(f){
+    function g(pu){
+        f(pu ? error("Missing profile"))
+    }
+    UserContext.execute(g, players_UserContext)
+}
+
+
+function int get_score(){
+    unsafe_execute(_.score)
+}
+
+function get_name(){
+    unsafe_execute(_.name)
+}
+
+function get_image(){
+    unsafe_execute(_.image)    
+}
+
+
+/*pour changer un Usercontext*/
+function unsafe_change(f){
+    function g(pu){
+        some(f(pu ? error("Missing profile")))
+    }
+    UserContext.change(g, players_UserContext)
+}
+
+function set_score(int x){
+    function set_score_to_u(profile_player pu){
+        {pu with score:x}
+    }
+    unsafe_change(set_score_to_u)
+}
+
+function add_score(int x){
+    function set_score_to_u(profile_player pu){
+        {pu with score:pu.score + x}
+    }
+    unsafe_change(set_score_to_u)
+}
+
+
