@@ -11,10 +11,10 @@ function list_fold(cont,acc)(f){
 
 function load_map(game_state game_state)
 {        
-        (row, col) = generate_pixel_pos(row, col)
-        acc = acc <+> <div class="empty" style="top:{col}px;left:{row}px"></div>
         x = array_foldi(game_state.map,<></>){function (row,row_array,acc)
               array_foldi(row_array,acc){function (col,tile,acc)
+               (row, col) = generate_pixel_pos(row, col)
+               acc = acc <+> <div class="empty" style="top:{col}px;left:{row}px"></div>
                class = match(tile)
                        {
                        case {full}: class_full
