@@ -49,6 +49,4 @@ function game_player bombkillplayer(bomb bomb, game_player player){
                   } else player
                 }
          } else  player
-         
-
 }
