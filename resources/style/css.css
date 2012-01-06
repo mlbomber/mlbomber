@@ -27,15 +27,15 @@
     background-repeat: no-repeat;
     height: 45px;
     width: 40px;
-    position: absolute
+    position: absolute;
 }
 
 .explode {
-    background: url("/ress=ources/map/map_bomb.png");
+    background: url("/ress=ources/map/map_bomb_explode.png");
     background-repeat: no-repeat;
     height: 45px;
     width: 40px;
-    position: absolute
+    position: absolute;
 }
 
 a:hover .transparent {
