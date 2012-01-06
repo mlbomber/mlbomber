@@ -10,10 +10,3 @@ function load_player(game_state game_state)
         }
         x
 }
-
-function  (int, int) generate_pixel_pos(int row, int col)
-{
-        pixel_row = row * 45
-        pixel_col = col * 40
-        (pixel_row, pixel_col)
-}
