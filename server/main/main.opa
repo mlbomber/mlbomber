@@ -29,7 +29,7 @@ function start(uri){
     		case { path : [], ... }: profile()
     		case { path : ["game"|_], ... }: show_game()
     		case { path : ["debug"|_], ... }: show_debug()	
-    		case { path : [_], ... }: do_404()
+    		case { path : [_|_], ... }: do_404()
 	}
 }
 
