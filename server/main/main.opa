@@ -1,8 +1,18 @@
 /* Jeu */
 function show_game(){
-	Resource.html("BOMBER",
-		<div>carte</div>
+	Resource.html("BOMBER >> Play",
+		<div id="main" onready={function(_ev){loop()}}>
+		</div>
 	)
+}
+
+function refresh(){
+	#main = load_map(GameState.get())
+}
+
+function loop(){
+	refresh()
+	sleep(80,loop)
 }
 
 function do_404(){	
