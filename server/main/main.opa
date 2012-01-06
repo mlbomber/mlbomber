@@ -1,7 +1,8 @@
 /* Jeu */
 function show_game(){
 	Resource.html("BOMBER >> Play",
-		<div id="main" onready={function(_ev){loop()}}>
+		<div id="main">
+		{load_map(GameState.get())}
 		</div>
 	)
 }

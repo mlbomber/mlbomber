@@ -1,6 +1,6 @@
 function show_debug(){
-Resource.html("debug",
-         <h1>Etat</h1>
-         <div>{"{GameState.get()}"}</div>)
-
+  ser = OpaSerialize.String.serialize(GameState.get())
+  xhtml =  <h1>Etat</h1>
+           <div>{ser}</div>
+  Resource.html("debug", xhtml)
 }
