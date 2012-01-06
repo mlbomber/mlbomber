@@ -52,7 +52,7 @@ function accBomb(bomb b,acc){
 
 function  (int, int) generate_pixel_pos(int row, int col)
 {
-        pixel_row = row * 45
-        pixel_col = col * 40
+        pixel_row = row * 40
+        pixel_col = col * 45
         (pixel_row, pixel_col)
 }
