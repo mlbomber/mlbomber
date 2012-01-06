@@ -4,6 +4,7 @@
     background-repeat: repeat;
     height: 45px;
     width: 40px;
+    position: absolute;
 }
 
 .full {
@@ -11,6 +12,7 @@
     background-repeat: no-repeat;
     height: 45px;
     width: 40px;
+    position: absolute;
 }
 
 .destructible {
