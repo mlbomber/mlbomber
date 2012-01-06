@@ -1,14 +1,14 @@
 
 
 function profile(){
-    //Resource.html("Change Pseudo",
+    Resource.html("Change Pseudo",
     <fieldset>
         <legend>config player</legend>
             <input type="text" id="{IdChangePseudo.change_pseudo}" />
             <button type="button" onclick={function(_) { change_name() }}>Change pseudo</>
             {List.fold(create_img_box(_,_),image_list,<></>)} 
             <div id="{IdChangePseudo.test}"></div>
-    </fieldset>
+    </fieldset>)
     }
 
 
