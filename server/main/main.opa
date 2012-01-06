@@ -1,12 +1,12 @@
 /* Jeu */
 function show_game(){
 	Resource.html("BOMBER >> Play",
-		<div id="main" onkeypress={update_event}  onready={function(_ev){init()}}>
+		<div id="main" onkeypress={update_event}  onready={function(_ev){initialization()}}>
 		</div>
 	)
 }
 
-function init(){
+function initialization(){
 	send_add_player(
 		{id:get_name(), dead:false, row:0, col:0, bomb:none}
 	)
