@@ -22,7 +22,23 @@
     width: 40px;
 }
 
-a .img {
+.bomb {
+    background: url("/ress=ources/map/map_bomb.png");
+    background-repeat: no-repeat;
+    height: 45px;
+    width: 40px;
+    position: absolute
+}
+
+.explode {
+    background: url("/ress=ources/map/map_bomb.png");
+    background-repeat: no-repeat;
+    height: 45px;
+    width: 40px;
+    position: absolute
+}
+
+a:hover .transparent {
     filter:alpha(opacity=50);
     -moz-opacity:0.5;
     -khtml-opacity: 0.5;
