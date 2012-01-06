@@ -8,7 +8,8 @@ SRC=display/bomb/bomb.opa\
 	game/type/type.opa\
 	profile/access/getset.opa\
 	profile/admin/admin.opa\
-	server/main/main.opa
+	server/main/main.opa\
+        server/main/debug.opa
 
 OPT=--parser js-like
 
