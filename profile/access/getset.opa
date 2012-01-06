@@ -10,8 +10,9 @@ list image_list = {
 }
 
 module IdChangePseudo {
-    change_pseudo = Random.string(5)
-    test = Random.string(5)
+    change_pseudo = Random.string(10)
+    test = Random.string(10)
+    class_img = "transparent" 
 }
 
 /*=================Fin declaration variable=========================*/
@@ -31,7 +32,7 @@ function create_img_box(image,xhtml){
     function onclick(_ev){
         UserContext.change(change_img, players_UserContext)
     }
-    xhtml <+> <div onclick={onclick}><img src="/{image}" />{image}</div>
+    xhtml <+> <div onclick={onclick}><a href="#" ><img class={class_img} src="/{image}" />{image}</a></div>
 }
 
 
