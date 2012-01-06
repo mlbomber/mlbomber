@@ -1,7 +1,9 @@
 /* Jeu */
 function show_game(){
 	Resource.html("BOMBER >> Play",
-		<div id="main" onready={initialization}/>
+		<div id="main" onready={initialization}>
+			<div id="map"/><div id="user"/>
+		</div>
 	)
 }
 
@@ -10,16 +12,17 @@ function initialization(_ev){
 	send_add_player(
 		{id:get_name(), dead:false, row:0, col:0, bomb:none}
 	)
+	#map = <>{load_map(GameState.get())}</>
 	loop()
 }
 
 function refresh(){
-	#main = <>{load_map(GameState.get())}{load_player(GameState.get())}</>
+	#user = <>{load_player(GameState.get())}</>
 }
 
 function loop(){
 	refresh()
-	sleep(10000,loop)
+	sleep(100,loop)
 }
 
 function do_404(){	

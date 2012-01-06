@@ -90,10 +90,10 @@ function game_player drop_bomb(game_player player){
 function game_player move_player(player_action action, game_player player, game_state state){
 	// Selon le type de déplacement
 	match(action){
-		case {up}: move(-1, 0, player, state)
-		case {down}: move(1, 0, player, state)
-		case {right}: move(0, 1, player, state)
-		case {left}: move(0, -1, player, state)
+		case {up}: move(0, -1, player, state)
+		case {down}: move(0, 1, player, state)
+		case {right}: move(1, 0, player, state)
+		case {left}: move(-1, 0, player, state)
 		case _ : player
 	}
 }
