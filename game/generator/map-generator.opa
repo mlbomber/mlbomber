@@ -1,15 +1,20 @@
 // FIX LowLevelArray.init 
 
-init(n)(f) =
-    open LowLevelArray
-    if n==0 then empty else
-    v0 = f(0)
-    a = create(n,v0)
-    rec aux(i) =
-     if i==n then a
-     else do set(a,i,f(i))
+function init(n)(f){
+//    open LowLevelArray
+    if( n==0 ) LowLevelArray.empty else {
+      v0 = f(0)
+      a = LowLevelArray.create(n,v0)
+      recursive function aux(i){
+        if( i==n) a
+        else {
+     	  LowLevelArray.set(a,i,f(i))
           aux(i+1)
-    aux(1)
+	}
+      }
+      aux(1)
+    }
+}
 
 function game_state generate_map(int rowsize, int colsize){
         function remplitabrow(int row){
