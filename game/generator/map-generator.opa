@@ -1,13 +1,26 @@
+// FIX LowLevelArray.init 
+
+init(n)(f) =
+    open LowLevelArray
+    if n==0 then empty else
+    v0 = f(0)
+    a = create(n,v0)
+    rec aux(i) =
+     if i==n then a
+     else do set(a,i,f(i))
+          aux(i+1)
+    aux(1)
+
 function game_state generate_map(int rowsize, int colsize){
         function remplitabrow(int row){
                  function remplitabcol(int col){
                           renseigneTile(row,col)
                           
                  }
-                 LowLevelArray.init(colsize)(remplitabcol)
+                 init(colsize)(remplitabcol)
         }
         
-       map =  LowLevelArray.init(rowsize)(remplitabrow)
+       map = init(rowsize)(remplitabrow)
        game_state gamestateini = {destructibles:[],
                                   map:map,
                                   players:[],
