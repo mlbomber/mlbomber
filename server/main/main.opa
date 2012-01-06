@@ -1,4 +1,15 @@
+/* Jeu */
+functionn show_game(){
+	Ressource.html("BOMBER",
+		<div>carte</div>
+	)
+}
 
+function do_404(){	
+	Ressource.html("BOMBER >> 404",
+		<div>Cette page n'existe pas.</div>
+	)
+}
 
 
 /* Server */

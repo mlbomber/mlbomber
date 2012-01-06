@@ -37,7 +37,7 @@ module AtomicMutable(initial_state){
 }
 
 private
-initial_state = game_state @unsafe_cast(0) // TODO dummy def
+initial_state = generate_map(10,10) 
 
 GameState = AtomicMutable(initial_state) 
 
