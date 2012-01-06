@@ -1,8 +1,17 @@
 function game_state generate_map(int rowsize, int colsize){
-       map =  LowLevelArray.init(rowsize,LowLevelArray.init(colsize,renseigneTile(rowsize, colsize)))
-       game_state gamestateini = {destructibles:{},
+        function remplitabrow(int row){
+                 function remplitabcol(int col){
+                          renseigneTile(row,col)
+                          
+                 }
+                 LowLevelArray.init(colsize)(remplitabcol)
+        }
+        
+       map =  LowLevelArray.init(rowsize)(remplitabrow)
+       game_state gamestateini = {destructibles:[],
                                   map:map,
-                                  players:{}}
+                                  players:[],
+                                  end_game:false}
                                   gamestateini
 }
 
