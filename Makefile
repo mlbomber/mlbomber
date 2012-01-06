@@ -3,6 +3,7 @@ SRC=display/bomb/bomb.opa\
 	display/map/map.opa\
 	display/player/player.opa\
 	game/generator/map-generator.opa\
+	game/action/action.opa\
 	game/rule/rule.opa\
 	game/state/state.opa\
 	game/type/type.opa\

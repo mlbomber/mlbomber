@@ -27,4 +27,3 @@ function change_name(){
     Client.goto("/game")
 }
 
-

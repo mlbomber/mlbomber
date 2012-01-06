@@ -19,6 +19,7 @@ function init(n)(f){
 function game_state generate_map(int rowsize, int colsize){
         function remplitabrow(int row){
                  function remplitabcol(int col){
+			println("{row}:{col}")
                           renseigneTile(row,col)
                           
                  }

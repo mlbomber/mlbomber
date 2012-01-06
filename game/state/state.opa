@@ -36,8 +36,11 @@ module AtomicMutable(initial_state){
   }
 }
 
+println("before initial state")
+
 private
-initial_state = generate_map(10,10) 
+initial_state = generate_map(11,11) 
+
 
 GameState = AtomicMutable(initial_state) 
 
@@ -47,6 +50,8 @@ function list_map(cont)(f){List.map(f,cont)}
 // Calcule un nouvel état du jeu
 server function game_state do_action(game_state state, action action){
 	players = match(action){
+		// Ajout d'un joueur
+		case({game_player:player}): List.add(player, state.players)
 		// Mise à jour des tick des bombes
 		case({bombtick}): bombtickPlayers(state.players)
 		// Prise en compte des action des joueurs

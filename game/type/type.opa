@@ -39,7 +39,7 @@ type bomb = {
 type tile = {empty} or {full}
 
 // Action communiquée
-type action = {player_action action, string id} or {bombtick}
+type action = {player_action action, string id} or {bombtick} or {game_player game_player}
 
 // Action du joueur (déplacement ou placement de bombe)
 type player_action = {up} or {down} or {left} or {right} or {drop}
