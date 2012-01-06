@@ -36,7 +36,6 @@ module AtomicMutable(initial_state){
   }
 }
 
-println("before initial state")
 
 private
 initial_state = generate_map(11,11) 

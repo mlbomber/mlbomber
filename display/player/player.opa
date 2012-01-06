@@ -6,7 +6,7 @@ function load_player(game_state game_state)
 {
         x = lmap(game_state.players){function (p)
             (row, col) = generate_pixel_pos(p.row, p.col)
-            <div class="bomb" style="top:{col}px;left:{row}px"></div>
+            <div class="player" style="top:{col}px;left:{row}px"></div>
         }
         x
 }

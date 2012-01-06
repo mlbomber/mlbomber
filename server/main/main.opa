@@ -1,12 +1,12 @@
 /* Jeu */
 function show_game(){
 	Resource.html("BOMBER >> Play",
-		<div id="main" onkeypress={update_event}  onready={function(_ev){initialization()}}>
-		</div>
+		<div id="main" onready={initialization}/>
 	)
 }
 
-function initialization(){
+function initialization(_ev){
+	Dom.bind_with_options(Dom.select_document(), {keydown}, update_event, [{prevent_default}])
 	send_add_player(
 		{id:get_name(), dead:false, row:0, col:0, bomb:none}
 	)
@@ -14,7 +14,7 @@ function initialization(){
 }
 
 function refresh(){
-	#main = load_map(GameState.get())
+	#main = <>{load_map(GameState.get())}{load_player(GameState.get())}</>
 }
 
 function loop(){

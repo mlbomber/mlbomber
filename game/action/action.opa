@@ -1,8 +1,11 @@
+server function print_test(x){
+	println("{x}")
+}
+
 function update_event(Dom.event event)
 {
-        x = event.key_code ? 0
-        
-        match(x)
+        x = event.key_code ? 0 
+	match(x)
         {
                  case 39: send_p_action({right})
                  case 37: send_p_action({left})
@@ -14,7 +17,7 @@ function update_event(Dom.event event)
 }
         
 function send(action action){	
-        update_state(action)
+	update_state(action)
 }
 
 function send_p_action(pa){
