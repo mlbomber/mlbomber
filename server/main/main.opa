@@ -19,7 +19,7 @@ function refresh(){
 
 function loop(){
 	refresh()
-	sleep(80,loop)
+	sleep(10000,loop)
 }
 
 function do_404(){	

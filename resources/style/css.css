@@ -57,3 +57,12 @@ a:hover .img {
     -khtml-opacity: 1;
     opacity: 1;
 }
+
+.player {
+	background: url("/resources/image_players/img_15.jpg");
+	background-repeat: no-repeat;
+    height: 45px;
+    width: 40px;
+    position: absolute;
+
+}
