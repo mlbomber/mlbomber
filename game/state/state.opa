@@ -77,7 +77,7 @@ function game_player drop_bomb(game_player player){
 	// Si le joueur a une bombe
 	if(player.bomb==none){
 		// Génération d'une bombe sur le plateau aux coordonnées du joueur
-		player with bomb : some({ row:player.row, col:player.col, range:3, timelaps:5 })
+		player with bomb : some({ row:player.row, col:player.col, range:3, timelaps:3 })
 	}
 	else player
 }
