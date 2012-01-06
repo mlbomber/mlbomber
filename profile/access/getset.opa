@@ -12,12 +12,19 @@ list image_list = {
 module IdChangePseudo {
     change_pseudo = Random.string(10)
     test = Random.string(10)
-    class_img = "transparent" 
+    class_img = "img" 
 }
 
 /*=================Fin declaration variable=========================*/
 
 
+function image_style(id){
+   all_image = Dom.select_class("img_click")
+   Dom.iter(Dom.add_class(_,"img"), all_image)
+   Dom.iter(Dom.remove_class(_,"img_click"), all_image)
+   Dom.add_class(Dom.select_id(id),"img_click")
+   Dom.remove_class(Dom.select_id(id),"img")
+}
 //change le nom d'un joueur et met un avatar auto 
 //si il y a pas d'image deja choisi
 function create_img_box(image,xhtml){
@@ -29,10 +36,13 @@ function create_img_box(image,xhtml){
         }
     }
     
+    id=Random.string(10)
     function onclick(_ev){
         UserContext.change(change_img, players_UserContext)
+        image_style(id)
+
     }
-    xhtml <+> <div onclick={onclick}><a href="#" ><img class="IdChangePseudo.class_img}" src="/{image}" />{image}</a></div>
+    xhtml <+> <div onclick={onclick}><a href="#" ><img id="{id}" class="{IdChangePseudo.class_img}" src="/{image}" /></a></div>
 }
 
 
