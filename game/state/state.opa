@@ -95,7 +95,7 @@ function game_player move_player(player_action action, game_player player, game_
 }
 
 // Définition d'un raccourci pour récupérer le i-eme élément d'un tableau
-`@`=LowLevelArray.get
+private `@@`=LowLevelArray.get
 
 // Déplace le joueur en gérant les collisions
 function game_player move(int d_row, int d_col, game_player player, game_state state)
@@ -104,7 +104,7 @@ function game_player move(int d_row, int d_col, game_player player, game_state s
 	p_col = player.col
 	// Si le joueur est sur un bord de la map et ne peut pas se déplacer
 	if( (p_row+d_row < 0 || p_row+d_row > LowLevelArray.length(state.map)-1 
-		|| p_col+d_col < 0 || p_col+d_col > LowLevelArray.length(state.map@0)-1)
+		|| p_col+d_col < 0 || p_col+d_col > LowLevelArray.length(state.map@@0)-1)
 	// ou si la case est occupée par un bloc infranchissable
 	|| check_non_passable(p_row+d_row, p_col+d_col, state) 
 	// ou si la case est occupée par un bloc destructible non-detruit
@@ -115,14 +115,16 @@ function game_player move(int d_row, int d_col, game_player player, game_state s
 	else {player with row : p_row+d_row, col : p_col+d_col }
 }
 
+// Renvoie true si la case n'est {full}
 function bool check_non_passable(int row, int col, game_state state)
 {
-	match((state.map@row)@col){
+	match((state.map@@row)@@col){
 		case {full} : true
 		case _: false
 	}
 }
 
+// Renoie true si la case est occupée par un destructible non détruit
 function bool check_non_destructed(int row, int col, game_state state)
 {
 	List.exists( function(elmt){ (elmt.row == row && elmt.col==col && elmt.destructed==false ) }, state.destructibles )
