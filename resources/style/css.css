@@ -37,7 +37,7 @@
     width: 40px;
     position: absolute;
 }
-
+/*image profile*/
 a:hover .transparent {
     filter:alpha(opacity=50);
     -moz-opacity:0.5;
@@ -56,4 +56,9 @@ a:hover .img {
     -moz-opacity:1;
     -khtml-opacity: 1;
     opacity: 1;
+}
+
+/*image player*/
+.player{
+    background: url("/resources/image_players/img_16.png")
 }
