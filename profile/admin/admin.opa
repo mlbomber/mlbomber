@@ -26,7 +26,4 @@ function change_name(){
     #{IdChangePseudo.test}="New Pseudo : {name}"
 }
 
-title = "toto"
-
-Server.start(Server.http, [{resources: static_images},{~title, page:init_pseudo}] )
 
