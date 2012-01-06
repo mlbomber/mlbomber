@@ -32,7 +32,7 @@ function create_img_box(image,xhtml){
     function onclick(_ev){
         UserContext.change(change_img, players_UserContext)
     }
-    xhtml <+> <div onclick={onclick}><a href="#" ><img class={class_img} src="/{image}" />{image}</a></div>
+    xhtml <+> <div onclick={onclick}><a href="#" ><img class="IdChangePseudo.class_img}" src="/{image}" />{image}</a></div>
 }
 
 
